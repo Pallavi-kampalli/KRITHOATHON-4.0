@@ -17,8 +17,8 @@
   --color-cyan: #22d3ee;
   --color-teal: #2dd4bf;
   --color-blue: #60a5fa;
-  --color-indigo: #818cf8;
-  --color-amber: #fbbf24;
+  --color-indigo: #3546e0;
+  --color-amber: #fefefe;
   
   /* Gradient combos */
   --gradient-primary: linear-gradient(135deg, var(--color-violet), var(--color-cyan), var(--color-teal));

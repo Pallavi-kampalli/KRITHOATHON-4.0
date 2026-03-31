@@ -4,6 +4,8 @@ import './HeroContent.css'
 
 export default function HeroContent() {
   const dotRef = useRef(null)
+  const headingText = 'GET READY FOR KRITHOMEDH'
+  const headingWords = headingText.split(' ')
 
   useEffect(() => {
     const dot = dotRef.current
@@ -34,8 +36,16 @@ export default function HeroContent() {
       </div>
 
       {/* Heading */}
-      <h1 className="hero-heading" id="heroHeading">
-        Get ready for Krithoathon 4.0
+      <h1 className="hero-heading" id="heroHeading" aria-label={headingText}>
+        {headingWords.map((word, index) => (
+          <span
+            key={`${word}-${index}`}
+            className="hero-heading__word"
+            style={{ '--i': String(index) }}
+          >
+            {word}
+          </span>
+        ))}
       </h1>
 
       {/* Subtitle */}
