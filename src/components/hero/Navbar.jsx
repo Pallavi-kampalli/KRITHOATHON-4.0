@@ -1,4 +1,5 @@
-import { useMemo } from 'react'
+import { useMemo, useState, useEffect } from 'react'
+import { Link } from 'react-router-dom' // 1. Added Link import
 import WaitlistButton from './WaitlistButton'
 import './Navbar.css'
 
@@ -7,23 +8,35 @@ const NAV_ITEMS = ['Home', 'Updates', 'About', 'Past Editions']
 const ChevronDown = () => (
   <svg
     className="nav-chevron"
-    width="12"
-    height="12"
     viewBox="0 0 24 24"
     fill="none"
     stroke="currentColor"
     strokeWidth="2"
-    strokeLinecap="round"
-    strokeLinejoin="round"
-    style={{ marginLeft: '4px' }}
   >
     <polyline points="6 9 12 15 18 9" />
   </svg>
 )
 
 export default function Navbar({ scrollY }) {
+  const [menuOpen, setMenuOpen] = useState(false)
+  const [mobileDropdownOpen, setMobileDropdownOpen] = useState(false) 
+
+  useEffect(() => {
+    const handleResize = () => {
+      if (window.innerWidth > 768) {
+        setMenuOpen(false)
+        setMobileDropdownOpen(false)
+      }
+    }
+
+    window.addEventListener('resize', handleResize)
+    return () => window.removeEventListener('resize', handleResize)
+  }, [])
+
+  const isScrolled = scrollY > 50;
+
   const navStyle = useMemo(() => {
-    if (scrollY > 50) {
+    if (isScrolled) {
       return {
         background: 'rgba(0, 0, 0, 0.65)',
         backdropFilter: 'blur(16px)',
@@ -33,47 +46,131 @@ export default function Navbar({ scrollY }) {
     }
     return {
       background: 'transparent',
-      backdropFilter: 'none',
-      WebkitBackdropFilter: 'none',
       borderBottom: '1px solid transparent',
     }
-  }, [scrollY > 50])
+  }, [isScrolled]) 
 
   return (
-    <nav className="navbar" id="navbar" style={navStyle}>
+    <nav className="navbar" style={navStyle}>
       <div className="nav-left">
-        <div className="logo" id="logo">
-          KRITHOATHON 4.0
-        </div>
-        <ul className="nav-links" id="navLinks">
+        <div className="logo">KRITHOATHON 4.0</div>
+
+        {/* Desktop Links */}
+        <ul className="nav-links">
           {NAV_ITEMS.map((item) => {
             if (item === 'Updates') {
               return (
                 <li className="nav-item dropdown" key={item}>
                   <button className="nav-link dropdown-trigger">
-                    <span>{item}</span>
+                    {item}
                     <ChevronDown />
                   </button>
+
                   <ul className="dropdown-menu">
-                    <li><a href="#timeline">Timeline</a></li>
-                    <li><a href="#results">Results</a></li>
+                    {/* Added /# to ensure these work from the gallery page */}
+                    <li><a href="/#timeline">Timeline</a></li>
+                    <li><a href="/#results">Results</a></li>
                   </ul>
+                </li>
+              )
+            }
+
+            // 2. Updated Past Editions to use Link
+            if (item === 'Past Editions') {
+              return (
+                <li className="nav-item" key={item}>
+                  <Link to="/past-editions" className="nav-link">
+                    {item}
+                  </Link>
                 </li>
               )
             }
 
             return (
               <li className="nav-item" key={item}>
-                <a href={`#${item.toLowerCase().replace(/\s+/g, '-')}`} className="nav-link">
-                  <span>{item}</span>
+                {/* 3. Added / before # for home navigation */}
+                <a
+                  href={`/#${item.toLowerCase().replace(/\s+/g, '-')}`}
+                  className="nav-link"
+                >
+                  {item}
                 </a>
               </li>
             )
           })}
         </ul>
       </div>
+
       <div className="nav-right">
-        <WaitlistButton variant="nav" />
+        <div className="desktop-register">
+          <WaitlistButton variant="nav" />
+        </div>
+
+        <div
+          className={`hamburger ${menuOpen ? 'active' : ''}`}
+          onClick={() => setMenuOpen(!menuOpen)}
+        >
+          <span></span>
+          <span></span>
+          <span></span>
+        </div>
+      </div>
+
+      {/* Mobile Menu */}
+      <div className={`mobile-menu ${menuOpen ? 'open' : ''}`}>
+        {NAV_ITEMS.map((item) => {
+          if (item === 'Updates') {
+            return (
+              <div key={item} className="mobile-dropdown-container">
+                <button 
+                  className="mobile-dropdown-trigger"
+                  onClick={() => setMobileDropdownOpen(!mobileDropdownOpen)}
+                  style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', width: '100%', background: 'none', border: 'none', color: 'inherit', fontSize: 'inherit', padding: 0 }}
+                >
+                  {item}
+                  <span style={{ transform: mobileDropdownOpen ? 'rotate(180deg)' : 'none', transition: 'transform 0.3s' }}>
+                    <ChevronDown />
+                  </span>
+                </button>
+                
+                {mobileDropdownOpen && (
+                  <div className="mobile-dropdown-menu" style={{ paddingLeft: '1rem', display: 'flex', flexDirection: 'column', marginTop: '0.5rem', gap: '1rem' }}>
+                    <a href="/#timeline" onClick={() => setMenuOpen(false)}>Timeline</a>
+                    <a href="/#results" onClick={() => setMenuOpen(false)}>Results</a>
+                  </div>
+                )}
+              </div>
+            )
+          }
+
+          // 4. Updated Mobile Past Editions Link
+          if (item === 'Past Editions') {
+            return (
+              <Link 
+                key={item} 
+                to="/past-editions"
+                className="nav-link"
+                onClick={() => setMenuOpen(false)}
+              >
+                {item}
+              </Link>
+            )
+          }
+
+          return (
+            <a
+              key={item}
+              href={`/#${item.toLowerCase().replace(/\s+/g, '-')}`}
+              onClick={() => setMenuOpen(false)}
+            >
+              {item}
+            </a>
+          )
+        })}
+        
+        <div className="mobile-register" onClick={() => setMenuOpen(false)}>
+          <WaitlistButton variant="nav" />
+        </div>
       </div>
     </nav>
   )

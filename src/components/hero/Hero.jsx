@@ -1,5 +1,4 @@
 import { useState, useEffect, useRef } from 'react'
-import Navbar from './Navbar'
 import HeroContent from './HeroContent'
 import BackgroundVideo from './BackgroundVideo'
 import './Hero.css'
@@ -34,8 +33,6 @@ export default function Hero() {
       <div className="ambient-orb ambient-orb--violet" />
       <div className="ambient-orb ambient-orb--cyan" />
       <div className="ambient-orb ambient-orb--fuchsia" />
-
-      <Navbar scrollY={scrollY} />
 
       <main
         className="hero-main"

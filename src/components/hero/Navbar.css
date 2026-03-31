@@ -1,17 +1,29 @@
 /* ============================================
-   NAVBAR
+   NAVBAR (Floating Pill Style)
    ============================================ */
 .navbar {
   position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
+  top: 20px; /* Spacing from the top of the screen */
+  left: 50%;
+  transform: translateX(-50%); /* Centers the navbar */
+  
+  width: 90%; 
+  max-width: 1200px;
+  border-radius: 24px; /* Rounded corners for the pill look */
+  
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 20px 120px;
-  z-index: 100;
-  transition: background 0.35s ease, backdrop-filter 0.35s ease, border-bottom 0.35s ease;
+  padding: 16px 40px; 
+  z-index: 1000;
+  
+  /* Persistent Glassmorphism Effect */
+  background: rgba(15, 15, 15, 0.45); 
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+
   opacity: 0;
   animation: navFadeIn 0.8s cubic-bezier(0.22, 1, 0.36, 1) 0.2s forwards;
 }
@@ -19,11 +31,11 @@
 @keyframes navFadeIn {
   from {
     opacity: 0;
-    transform: translateY(-16px);
+    transform: translate(-50%, -16px);
   }
   to {
     opacity: 1;
-    transform: translateY(0);
+    transform: translate(-50%, 0);
   }
 }
 
@@ -89,25 +101,27 @@
   transform: rotate(180deg);
 }
 
-/* RED GLASSY DROPDOWN MENU */
+/* ============================================
+   RED GLASSY DROPDOWN MENU (DESKTOP)
+   ============================================ */
 .dropdown-menu {
   position: absolute;
   top: 100%;
   left: 50%;
   transform: translateX(-50%) translateY(10px);
-  min-width: 100px; /* Decreased width */
+  min-width: 100px;
   list-style: none;
   padding: 8px 0;
   margin: 0;
   display: none;
   
   /* Glassmorphism Effect */
-  background: rgba(180, 0, 0, 0.5); /* Increased opacity from 0.3 to 0.5 */
+  background: rgba(180, 0, 0, 0.5);
   backdrop-filter: blur(12px);
   -webkit-backdrop-filter: blur(12px);
   
   /* Border and Shadow */
-  border: 1px solid rgba(235, 5, 5, 0.15);
+  border: 1px solid rgba(255, 255, 255, 0.15);
   border-radius: 12px;
   box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
 }
@@ -141,7 +155,7 @@
 }
 
 .dropdown-menu li a {
-  padding: 10px 14px; /* Adjusted padding for narrower width */
+  padding: 10px 14px;
   display: block;
   color: #ffffff;
   text-decoration: none;
@@ -151,22 +165,121 @@
 }
 
 .dropdown-menu li a:hover {
-  background: rgba(244, 238, 238, 0.15);
-  padding-left: 18px; /* Adjusted hover slide distance to fit narrower box */
+  background: rgba(255, 255, 255, 0.15);
+  padding-left: 18px;
 }
 
+/* ============================================
+   RIGHT SECTION & HAMBURGER
+   ============================================ */
 .nav-right {
   display: flex;
   align-items: center;
+  gap: 20px;
+}
+
+.hamburger {
+  display: none;
+  flex-direction: column;
+  cursor: pointer;
+  gap: 5px;
+}
+
+.hamburger span {
+  width: 24px;
+  height: 2px;
+  background: white;
+  transition: 0.3s;
+}
+
+/* Hamburger Animation */
+.hamburger.active span:nth-child(1) {
+  transform: rotate(45deg) translateY(8px);
+}
+.hamburger.active span:nth-child(2) {
+  opacity: 0;
+}
+.hamburger.active span:nth-child(3) {
+  transform: rotate(-45deg) translateY(-8px);
+}
+
+/* ============================================
+   MOBILE MENU
+   ============================================ */
+.mobile-menu {
+  position: absolute;
+  top: calc(100% + 10px); /* Drops down just below the pill */
+  left: 0;
+  width: 100%;
+  background: rgba(0, 0, 0, 0.95);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  
+  border-radius: 24px; /* Matches the pill aesthetic */
+  border: 1px solid rgba(255, 255, 255, 0.08);
+
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  padding: 25px;
+
+  transform: translateY(-20px);
+  opacity: 0;
+  pointer-events: none;
+  transition: 0.3s ease;
+}
+
+.mobile-menu.open {
+  transform: translateY(0);
+  opacity: 1;
+  pointer-events: all;
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.5);
+}
+
+.mobile-menu a {
+  color: white;
+  font-size: 18px;
+  text-decoration: none;
+  font-weight: 500;
+}
+
+/* Mobile Dropdown Additions */
+.mobile-dropdown-trigger {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  background: none;
+  border: none;
+  color: white;
+  font-size: 18px;
+  font-weight: 500;
+  padding: 0;
+  cursor: pointer;
+  font-family: inherit;
+}
+
+.mobile-dropdown-menu {
+  padding-left: 1rem;
+  display: flex;
+  flex-direction: column;
+  margin-top: 15px;
+  gap: 15px;
+}
+
+.mobile-dropdown-menu a {
+  font-size: 16px;
+  color: rgba(255, 255, 255, 0.85);
+}
+
+.mobile-register {
+  margin-top: 10px;
 }
 
 /* ============================================
    RESPONSIVE
    ============================================ */
 @media (max-width: 1024px) {
-  .navbar {
-    padding: 20px 40px;
-  }
   .nav-left {
     gap: 60px;
   }
@@ -174,17 +287,28 @@
 
 @media (max-width: 768px) {
   .navbar {
-    padding: 16px 20px;
+    padding: 16px 24px;
   }
+  
   .nav-links {
     display: none;
+  }
+
+  .desktop-register {
+    display: none;
+  }
+
+  .hamburger {
+    display: flex;
   }
 }
 
 @media (max-width: 480px) {
   .navbar {
-    padding: 14px 16px;
+    width: 95%; /* Slightly wider on very small screens to fit content */
+    padding: 14px 20px;
   }
+  
   .logo {
     font-size: 16px;
   }

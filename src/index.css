@@ -66,3 +66,6 @@ button {
   font-family: inherit;
   background: none;
 }
+html {
+  scroll-behavior: smooth;
+}

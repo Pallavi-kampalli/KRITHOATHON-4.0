@@ -1,19 +1,65 @@
+import { useState, useEffect } from 'react'
+import { Routes, Route } from 'react-router-dom' // Added this
+
+import Navbar from './components/hero/Navbar'
 import Hero from './components/hero/Hero'
-import Timeline from './components/timeline/Timeline'
-import Footer from './components/Footer'
+import Timeline from './components/timeline/Timeline' 
 import About from './components/About'
+import Footer from './components/Footer'
+import PastEditions from './components/PastEditions' // Make sure to create this file
 import './App.css'
 
 function App() {
+  const [scrollY, setScrollY] = useState(0)
+
+  useEffect(() => {
+    let ticking = false
+    const handleScroll = () => {
+      if (!ticking) {
+        window.requestAnimationFrame(() => {
+          setScrollY(window.scrollY)
+          ticking = false
+        })
+        ticking = true
+      }
+    }
+    window.addEventListener('scroll', handleScroll, { passive: true })
+    return () => window.removeEventListener('scroll', handleScroll)
+  }, [])
+
   return (
-    <>
-      <Hero />
-      <Timeline />
-      <About />
+    <div className="app-wrapper">
+      <Navbar scrollY={scrollY} />
+      
+      <Routes>
+        {/* MAIN HOME PAGE */}
+        <Route path="/" element={
+          <>
+            <section id="home">
+              <Hero />
+            </section>
+
+            <section id="timeline">
+              <Timeline />
+            </section>
+
+            <section id="results" style={{ minHeight: '40vh', display: 'flex', alignItems: 'center', justifyContent: 'center', background: '#0a0a0a' }}>
+              <h2 style={{ color: '#666', fontFamily: 'sans-serif' }}>Results Section Coming Soon</h2>
+            </section>
+
+            <section id="about">
+              <About />
+            </section>
+          </>
+        } />
+
+        {/* GALLERY PAGE */}
+        <Route path="/past-editions" element={<PastEditions />} />
+      </Routes>
+
       <Footer />
-    </>
+    </div>
   )
 }
-
 
 export default App

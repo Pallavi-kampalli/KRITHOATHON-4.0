@@ -4,8 +4,10 @@
 .hero-section {
   position: relative;
   width: 100%;
-  min-height: 100vh;
-  overflow: visible;
+  /* Fix: Use dvh to account for mobile browser UI bars */
+  min-height: 100dvh; 
+  /* Fix: Prevents translateY parallax from creating white space below */
+  overflow: hidden; 
   background: #000000;
 }
 
@@ -61,15 +63,9 @@
 }
 
 @keyframes orbFloat {
-  0%, 100% {
-    transform: translate(0, 0) scale(1);
-  }
-  33% {
-    transform: translate(30px, -20px) scale(1.05);
-  }
-  66% {
-    transform: translate(-20px, 15px) scale(0.95);
-  }
+  0%, 100% { transform: translate(0, 0) scale(1); }
+  33% { transform: translate(30px, -20px) scale(1.05); }
+  66% { transform: translate(-20px, 15px) scale(0.95); }
 }
 
 /* ============================================
@@ -93,5 +89,12 @@
 @media (max-width: 480px) {
   .hero-main {
     padding-top: 180px;
+    /* Extra Fix: Tighter padding for small mobile screens */
+    padding-bottom: 20px;
+  }
+  
+  .hero-section {
+    /* Ensures height is strictly forced on small phones */
+    height: 100dvh;
   }
 }

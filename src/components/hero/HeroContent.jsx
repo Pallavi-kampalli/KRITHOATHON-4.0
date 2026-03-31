@@ -4,7 +4,7 @@ import './HeroContent.css'
 
 export default function HeroContent() {
   const dotRef = useRef(null)
-  const headingText = 'GET READY FOR KRITHOMEDH'
+  const headingText = 'GET READY FOR KRITHOATHON-4.0'
   const headingWords = headingText.split(' ')
 
   useEffect(() => {
@@ -28,12 +28,6 @@ export default function HeroContent() {
 
   return (
     <div className="hero-content">
-      {/* Badge Pill */}
-      <div className="badge-pill" id="badgePill">
-        <span className="badge-dot" ref={dotRef} />
-        <span className="badge-text">Early access available from</span>
-        <span className="badge-date"> May 1, 2026</span>
-      </div>
 
       {/* Heading */}
       <h1 className="hero-heading" id="heroHeading" aria-label={headingText}>
@@ -50,9 +44,9 @@ export default function HeroContent() {
 
       {/* Subtitle */}
       <p className="hero-subtitle" id="heroSubtitle">
-        Powering seamless experiences and real-time connections, EOS is the base
-        for creators who move with purpose, leveraging resilience, speed, and
-        scale to shape the future.
+        KRITHOATHON 4.0 – Innovate. Impact. Inspire.
+Hosted by Krithomedh, the technical club of AIML & IoT at VNRVJIET, this edition goes beyond coding to challenge diverse teams to solve real-world problems. Collaborate, create, and compete with industry experts as you push boundaries and craft solutions that matter.
+
       </p>
 
       {/* CTA Button */}
