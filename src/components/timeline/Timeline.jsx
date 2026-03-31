@@ -3,68 +3,42 @@ import { useState, useRef, useEffect } from "react";
 const timelineEvents = [
   {
     id: 1,
-    date: "May 1, 2026",
-    time: "09:00 AM – 10:00 AM",
-    title: "Genesis Launch",
-    location: "Main Stage",
-    description:
-      "The EOS ecosystem ignites. Industry leaders and Web3 pioneers converge to mark the dawn of a new era in decentralized experience.",
-    tag: "Keynote",
+    date: "April 1,2026",
+    title: "Round 1 Start",
+
     side: "left",
   },
   {
     id: 2,
-    date: "May 1, 2026",
-    time: "10:30 AM – 12:00 PM",
-    title: "Builder Sprint",
-    location: "Hub Alpha",
-    description:
-      "Hands-on workshop for developers to ship their first EOS-powered application — from zero to deployed in 90 minutes.",
-    tag: "Workshop",
+    date: "April 10, 2026",
+    title: "Round 1 Final Submissions",
+
     side: "right",
   },
   {
     id: 3,
-    date: "May 2, 2026",
-    time: "09:00 AM – 06:00 PM",
-    title: "Chain Hackathon",
-    location: "Innovation Zone",
-    description:
-      "24-hour build sprint where teams compete to solve real-world challenges using EOS infrastructure. $50K in prizes.",
-    tag: "Contest",
+    date: "April 15, 2026",
+    title: "Round 1 Results Declaration",
     side: "left",
   },
   {
     id: 4,
-    date: "May 3, 2026",
-    time: "02:00 PM – 03:30 PM",
-    title: "The Interoperability Panel",
-    location: "Forum Hall",
-    description:
-      "Cross-chain architects and protocol engineers debate the future of seamless blockchain bridges and unified liquidity layers.",
-    tag: "Panel",
+    date: "April 24, 2026",
+    title: "Round 2 Start",
     side: "right",
   },
   {
     id: 5,
-    date: "May 4, 2026",
-    time: "11:00 AM – 12:00 PM",
-    title: "DeFi at Scale",
-    location: "Stage B",
-    description:
-      "How EOS enables DeFi protocols to process millions of transactions per second without compromising security or UX.",
-    tag: "Talk",
+    date: "April 25, 2026",
+    title: "Round 2 Final Submissions",
     side: "left",
   },
   {
     id: 6,
-    date: "May 5, 2026",
-    time: "05:00 PM – 07:00 PM",
+    date: "April 25, 2026",
+   
     title: "Closing Ceremony",
-    location: "Main Stage",
-    description:
-      "Awards, announcements, and a look ahead. The future of Web3 is shaped here — and it's only the beginning.",
-    tag: "Ceremony",
+   
     side: "right",
   },
 ];
@@ -125,15 +99,15 @@ function Card({ event }) {
         <h3 style={{ fontSize:17,fontWeight:700,color:"#fff",marginBottom:8,lineHeight:1.25 }}>
           {event.title}
         </h3>
-        <div style={{ display:"flex",alignItems:"center",gap:5,marginBottom:12 }}>
+        {/* <div style={{ display:"flex",alignItems:"center",gap:5,marginBottom:12 }}>
           <span style={{ fontSize:12 }}>📍</span>
           <span style={{ fontSize:12,color:"rgba(255,255,255,0.35)",fontWeight:300 }}>{event.location}</span>
         </div>
         <div style={{ height:1,background:"rgba(255,255,255,0.06)",marginBottom:12 }}/>
         <p style={{ fontSize:13,color:"rgba(255,255,255,0.48)",lineHeight:1.65,fontWeight:300,margin:0 }}>
           {event.description}
-        </p>
-        <div style={{ marginTop:16 }}>
+        </p> */}
+        {/* <div style={{ marginTop:16 }}>
           <span style={{
             display:"inline-block",fontSize:10,fontWeight:700,
             letterSpacing:"0.16em",textTransform:"uppercase",
@@ -142,7 +116,7 @@ function Card({ event }) {
           }}>
             {event.tag}
           </span>
-        </div>
+        </div> */}
       </div>
     </div>
   );
