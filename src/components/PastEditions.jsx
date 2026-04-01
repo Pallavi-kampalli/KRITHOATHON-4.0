@@ -2,12 +2,13 @@ import React from 'react';
 export default function PastEditions() {
   return (
     <div className="past-editions-page" style={{ 
-      paddingTop: '150px', 
+      paddingTop: 'clamp(80px, 15vw, 150px)', 
       minHeight: '100vh', 
       background: '#000', 
       color: '#fff', 
       textAlign: 'center',
-      paddingInline: '20px'
+      paddingInline: '20px',
+      scrollMarginTop: '80px'
     }}>
       <h1 style={{ fontSize: '3rem', marginBottom: '20px' }}>Past Editions</h1>
       <p style={{ color: '#888', maxWidth: '600px', margin: '0 auto' }}>

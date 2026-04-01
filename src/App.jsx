@@ -35,26 +35,27 @@ function App() {
         {/* MAIN HOME PAGE */}
         <Route path="/" element={
           <>
-            <section id="home">
+            <section id="home" style={{ scrollMarginTop: '80px' }}>
               <Hero />
             </section>
 
-            <section id="timeline">
+            <section id="timeline" style={{ scrollMarginTop: '80px' }}>
               <Timeline />
             </section>
 
-            <section id="results" style={{ minHeight: '40vh', display: 'flex', alignItems: 'center', justifyContent: 'center', background: '#0a0a0a' }}>
+            <section id="results" style={{ minHeight: '40vh', display: 'flex', alignItems: 'center', justifyContent: 'center', background: '#0a0a0a', scrollMarginTop: '80px' }}>
               <h2 style={{ color: '#666', fontFamily: 'sans-serif' }}>Results Section Coming Soon</h2>
             </section>
 
-            <section id="about">
+            <section id="about" style={{ scrollMarginTop: '80px' }}>
               <About />
+            </section>
+
+            <section id="past-editions" style={{ scrollMarginTop: '80px' }}>
+              <PastEditions />
             </section>
           </>
         } />
-
-        {/* GALLERY PAGE */}
-        <Route path="/past-editions" element={<PastEditions />} />
       </Routes>
 
       <Footer />

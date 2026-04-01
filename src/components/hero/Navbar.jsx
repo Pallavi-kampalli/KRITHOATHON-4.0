@@ -1,5 +1,4 @@
 import { useMemo, useState, useEffect } from 'react'
-import { Link } from 'react-router-dom'
 import WaitlistButton from './WaitlistButton'
 import './Navbar.css'
 
@@ -75,13 +74,15 @@ export default function Navbar({ scrollY }) {
               )
             }
 
-            // 2. Updated Past Editions to use Link
             if (item === 'Past Editions') {
               return (
                 <li className="nav-item" key={item}>
-                  <Link to="/past-editions" className="nav-link">
+                  <a
+                    href="/#past-editions"
+                    className="nav-link"
+                  >
                     {item}
-                  </Link>
+                  </a>
                 </li>
               )
             }
@@ -143,17 +144,16 @@ export default function Navbar({ scrollY }) {
             )
           }
 
-          // 4. Updated Mobile Past Editions Link
           if (item === 'Past Editions') {
             return (
-              <Link 
+              <a 
                 key={item} 
-                to="/past-editions"
+                href="/#past-editions"
                 className="nav-link"
                 onClick={() => setMenuOpen(false)}
               >
                 {item}
-              </Link>
+              </a>
             )
           }
 
