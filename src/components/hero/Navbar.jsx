@@ -1,5 +1,5 @@
 import { useMemo, useState, useEffect } from 'react'
-import { Link } from 'react-router-dom' // 1. Added Link import
+import { Link } from 'react-router-dom'
 import WaitlistButton from './WaitlistButton'
 import './Navbar.css'
 

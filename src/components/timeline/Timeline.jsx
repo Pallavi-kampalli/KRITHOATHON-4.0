@@ -55,7 +55,6 @@ const TAG_STYLES = {
 /* ─── CARD ─── */
 function Card({ event }) {
   const [hov, setHov] = useState(false);
-  const tag = TAG_STYLES[event.tag] || TAG_STYLES.Talk;
 
   return (
     <div
@@ -123,7 +122,7 @@ function Card({ event }) {
 }
 
 /* ─── SPINE DOT ─── */
-function Dot({ active, visible }) {
+function Dot({ active }) {
   return (
     <div style={{
       width: 18, height: 18, borderRadius:"50%", flexShrink:0,
@@ -379,7 +378,7 @@ export default function Timeline() {
                     transition: isVis && !isLeft ? "transform .45s ease .28s" : "none",
                   }}/>
                   {/* Dot */}
-                  <Dot active={isActive} visible={isVis} />
+                  <Dot active={isActive} />
                 </div>
 
                 {/* ── RIGHT cell ── */}
@@ -429,7 +428,7 @@ export default function Timeline() {
                   transform:"translateX(50%)",
                   zIndex:2,
                 }}>
-                  <Dot active={isActive} visible={isVis} />
+                  <Dot active={isActive} />
                 </div>
 
                 {/* Horizontal arm */}
