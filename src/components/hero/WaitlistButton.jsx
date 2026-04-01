@@ -14,7 +14,7 @@ export default function WaitlistButton({ variant = 'nav' }) {
 
     // Redirect to registration page for nav variant
     if (variant === 'nav') {
-      window.location.href = 'https://unstop.com/o/gartJTQ?utm_medium=Share&utm_source=krithome97928&utm_campaign=Online_coding_challenge'
+      window.location.href = 'https://unstop.com/o/RcCZYiB?lb=bSLJ0FFA&utm_medium=Share&utm_source=krithome97928&utm_campaign=Online_coding_challenge'
     }
 
     // Download PDF for CTA variant
