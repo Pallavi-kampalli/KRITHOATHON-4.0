@@ -107,7 +107,7 @@ export default function PastEditions() {
           display: "grid",
           gridTemplateColumns: "repeat(auto-fit, minmax(280px, 1fr))",
           gap: "30px",
-        }
+        }}
       >
         {editions.map((edition, i) => (
           <div
