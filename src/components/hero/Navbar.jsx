@@ -1,4 +1,4 @@
-import { useMemo, useState, useEffect } from 'react'
+import { useState, useEffect } from 'react'
 import WaitlistButton from './WaitlistButton'
 import './Navbar.css'
 
@@ -16,7 +16,7 @@ const ChevronDown = () => (
   </svg>
 )
 
-export default function Navbar({ scrollY }) {
+export default function Navbar() {
   const [menuOpen, setMenuOpen] = useState(false)
   const [mobileDropdownOpen, setMobileDropdownOpen] = useState(false) 
 
@@ -32,25 +32,8 @@ export default function Navbar({ scrollY }) {
     return () => window.removeEventListener('resize', handleResize)
   }, [])
 
-  const isScrolled = scrollY > 50;
-
-  const navStyle = useMemo(() => {
-    if (isScrolled) {
-      return {
-        background: 'rgba(0, 0, 0, 0.65)',
-        backdropFilter: 'blur(16px)',
-        WebkitBackdropFilter: 'blur(16px)',
-        borderBottom: '1px solid rgba(255,255,255,0.06)',
-      }
-    }
-    return {
-      background: 'transparent',
-      borderBottom: '1px solid transparent',
-    }
-  }, [isScrolled]) 
-
   return (
-    <nav className="navbar" style={navStyle}>
+    <nav className="navbar">
       <div className="nav-left">
         <div className="logo">KRITHOATHON 4.0</div>
 
@@ -66,7 +49,6 @@ export default function Navbar({ scrollY }) {
                   </button>
 
                   <ul className="dropdown-menu">
-                    {/* Added /# to ensure these work from the gallery page */}
                     <li><a href="/#timeline">Timeline</a></li>
                     <li><a href="/#results">Results</a></li>
                   </ul>
@@ -89,7 +71,6 @@ export default function Navbar({ scrollY }) {
 
             return (
               <li className="nav-item" key={item}>
-                {/* 3. Added / before # for home navigation */}
                 <a
                   href={`/#${item.toLowerCase().replace(/\s+/g, '-')}`}
                   className="nav-link"
