@@ -29,7 +29,7 @@ export default function AboutKrithomedh() {
         {/* RIGHT (ONLY IMAGE) */}
         <div className="about-right">
           <img
-            src="./src/assets/1.jpeg"
+            src="./public/assets/1.jpeg"
             alt="Krithomedh"
             className="about-image"
           />
