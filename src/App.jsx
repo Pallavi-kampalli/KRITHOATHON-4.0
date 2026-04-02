@@ -40,13 +40,17 @@ function App() {
               <Hero />
             </section>
 
-            <section id="timeline" style={{ scrollMarginTop: '80px' }}>
-              <Timeline />
-            </section>
 
             <section id="past-editions" style={{ scrollMarginTop: '80px' }}>
               <PastEditions />
             </section>
+
+            
+            <section id="timeline" style={{ scrollMarginTop: '80px' }}>
+              <Timeline />
+            </section>
+
+            
 
             <section id="about" style={{ scrollMarginTop: '80px' }}>
               <About />

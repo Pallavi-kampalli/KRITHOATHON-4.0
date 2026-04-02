@@ -3,14 +3,14 @@ import { useState, useRef, useEffect } from "react";
 const timelineEvents = [
   {
     id: 1,
-    date: "April 1,2026",
+    date: "April 2,2026",
     title: "Round 1 Start",
 
     side: "left",
   },
   {
     id: 2,
-    date: "April 10, 2026",
+    date: "April 11, 2026",
     title: "Round 1 Final Submissions",
 
     side: "right",
@@ -36,9 +36,7 @@ const timelineEvents = [
   {
     id: 6,
     date: "April 25, 2026",
-   
     title: "Closing Ceremony",
-   
     side: "right",
   },
 ];

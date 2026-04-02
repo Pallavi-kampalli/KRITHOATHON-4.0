@@ -2,7 +2,7 @@ import { useState, useEffect } from 'react'
 import WaitlistButton from './WaitlistButton'
 import './Navbar.css'
 
-const NAV_ITEMS = ['Home', 'Updates', 'About', 'Past Editions']
+const NAV_ITEMS = ['Home', 'Updates', 'Past Editions', 'About']
 
 const ChevronDown = () => (
   <svg
