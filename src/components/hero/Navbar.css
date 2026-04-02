@@ -3,50 +3,47 @@
    ============================================ */
 .navbar {
   position: fixed;
-  top: 24px; /* Pushed down from the top */
-  left: 50%; /* Centering trick step 1 */
-  transform: translateX(-50%); /* Centering trick step 2 */
+  top: 24px; 
+  left: 50%; 
+  transform: translateX(-50%); 
   
-  width: 90%; /* Doesn't touch the sides */
-  max-width: 1200px; /* Limits width on ultra-wide screens */
+  width: 90%; 
+  max-width: 1200px; 
   
   box-sizing: border-box; 
-  border-radius: 50px; /* Fully rounded pill shape */
+  border-radius: 50px; 
   
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 14px 32px; /* Adjusted padding for pill shape */
+  padding: 14px 32px; 
   z-index: 1000;
   
   /* PERMANENT GLASS EFFECT */
   background: rgba(10, 10, 10, 0.2); 
-  
-  /* Saturation added to make content behind the glass pop */
   -webkit-backdrop-filter: blur(16px) saturate(180%);
   backdrop-filter: blur(16px) saturate(180%);
   
   /* DEPLOYMENT FIX: Hardware acceleration */
-  -webkit-transform: translate3d(-50%, 0, 0); /* Combined centering and hardware accel */
+  -webkit-transform: translate3d(-50%, 0, 0); 
   transform: translate3d(-50%, 0, 0);
   will-change: transform, backdrop-filter, opacity;
   
-  border: 1px solid rgba(255, 255, 255, 0.1); /* Border all around now */
+  border: 1px solid rgba(255, 255, 255, 0.1); 
   box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
 
   opacity: 0;
-  /* Updated animation to factor in the centering transform */
   animation: navFadeIn 0.8s cubic-bezier(0.22, 1, 0.36, 1) 0.2s forwards;
 }
 
 @keyframes navFadeIn {
   from {
     opacity: 0;
-    transform: translate3d(-50%, -24px, 0); /* Starts slightly higher */
+    transform: translate3d(-50%, -24px, 0);
   }
   to {
     opacity: 1;
-    transform: translate3d(-50%, 0, 0); /* Settles at centered position */
+    transform: translate3d(-50%, 0, 0);
   }
 }
 
@@ -79,7 +76,7 @@
   padding: 0;
   margin-left: auto;
   margin-right: auto;
-  transform: translateX(-40px); /* Slightly adjusted for new padding */
+  transform: translateX(-40px);
 }
 
 .nav-item {
@@ -130,18 +127,15 @@
   margin: 0;
   display: none;
   
-  /* Glassmorphism Effect */
   background: rgba(180, 0, 0, 0.45);
   -webkit-backdrop-filter: blur(12px) saturate(150%);
   backdrop-filter: blur(12px) saturate(150%);
   
-  /* Border and Shadow */
   border: 1px solid rgba(255, 255, 255, 0.15);
   border-radius: 12px;
   box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
 }
 
-/* Invisible bridge to keep hover active across the gap */
 .dropdown-menu::before {
   content: '';
   position: absolute;
@@ -152,7 +146,6 @@
   background: transparent;
 }
 
-/* Show menu on hover */
 .nav-item:hover .dropdown-menu {
   display: block;
   animation: dropdownFadeIn 0.2s ease-out forwards;
@@ -207,7 +200,6 @@
   transition: 0.3s;
 }
 
-/* Hamburger Animation */
 .hamburger.active span:nth-child(1) {
   transform: rotate(45deg) translateY(8px);
 }
@@ -219,20 +211,43 @@
 }
 
 /* ============================================
+   DESKTOP REGISTER BUTTON (Reddish-Golden Glow)
+   ============================================ */
+.desktop-register .btn-waitlist--nav {
+  border: 1px solid rgba(255, 80, 40, 0.6);
+  /* Outer warm glow + subtle inner golden glow */
+  box-shadow: 0 0 20px rgba(255, 60, 0, 0.4), inset 0 0 10px rgba(255, 160, 0, 0.2);
+}
+
+/* Reddish-golden light streak on top */
+.desktop-register .btn-waitlist--nav .btn-waitlist__glow {
+  background: radial-gradient(
+    ellipse at center,
+    #fbbf24 0%, /* Golden center */
+    #ff4444 50%, /* Reddish edges */
+    transparent 80%
+  );
+}
+
+/* Subtle warm tint on hover */
+.desktop-register .btn-waitlist--nav:hover .btn-waitlist__inner--nav {
+  background: rgba(35, 10, 0, 0.9);
+}
+
+/* ============================================
    MOBILE MENU (Floating detached card)
    ============================================ */
 .mobile-menu {
   position: absolute;
-  top: calc(100% + 16px); /* Detached gap below the navbar */
+  top: calc(100% + 16px); 
   left: 0;
   width: 100%;
   
-  /* Mobile Glass Effect */
   background: rgba(10, 10, 10, 0.85); 
   -webkit-backdrop-filter: blur(20px) saturate(180%);
   backdrop-filter: blur(20px) saturate(180%);
   
-  border-radius: 24px; /* Fully rounded like a card */
+  border-radius: 24px; 
   border: 1px solid rgba(255, 255, 255, 0.08);
 
   display: flex;
@@ -260,7 +275,6 @@
   font-weight: 500;
 }
 
-/* Mobile Dropdown Additions */
 .mobile-dropdown-trigger {
   display: flex;
   align-items: center;
@@ -287,10 +301,6 @@
 .mobile-dropdown-menu a {
   font-size: 16px;
   color: rgba(255, 255, 255, 0.85);
-}
-
-.mobile-register {
-  margin-top: 10px;
 }
 
 /* ============================================

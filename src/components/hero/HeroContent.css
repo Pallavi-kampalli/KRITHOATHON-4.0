@@ -19,7 +19,7 @@
   width: 100%;
   max-width: 1200px;
   margin: 0 auto;
-  overflow-x: hidden; /* Added safety net for horizontal scroll */
+  overflow-x: hidden; 
 }
 
 /* ===== Badge Pill ===== */
@@ -67,7 +67,7 @@
   z-index: 0;
   isolation: isolate;
   display: flex;
-  flex-wrap: wrap; /* Keeps text inside bounds */
+  flex-wrap: wrap; 
   justify-content: center;
   gap: 0.28em;
   opacity: 1;
@@ -167,19 +167,24 @@
   margin-top: 16px;
   margin-bottom: 30px;
   opacity: 0;
-  text-wrap: balance; /* Balances text lines on desktop */
+  text-wrap: balance; 
   animation: fadeInUp 0.8s cubic-bezier(0.22, 1, 0.36, 1) 0.7s forwards;
 }
 
 .hero-subtitle-line {
   display: inline-block;
-  white-space: normal; /* FIX: Removed nowrap so text can wrap freely */
+  white-space: normal; 
 }
 
-/* ===== CTA Button entry ===== */
-.hero-content > .btn-waitlist--cta {
+/* ===== CTA Button Group & Entry Animation ===== */
+.hero-cta-group {
   opacity: 0;
   animation: fadeInUp 0.8s cubic-bezier(0.22, 1, 0.36, 1) 0.85s forwards;
+  
+  display: flex;
+  flex-direction: column;
+  align-items: center; 
+  gap: 16px; 
 }
 
 /* ============================================
@@ -253,7 +258,7 @@
   .hero-heading::after,
   .badge-pill,
   .hero-subtitle,
-  .hero-content > .btn-waitlist--cta {
+  .hero-cta-group {
     animation: none !important;
     opacity: 1 !important;
     transform: none !important;
@@ -270,6 +275,48 @@
 /* ============================================
    RESPONSIVE
    ============================================ */
+/* Desktop screens (>768px) */
+@media (min-width: 769px) {
+  .mobile-hero-register {
+    display: none; 
+  }
+  
+  .hero-cta-group {
+    flex-direction: row; 
+    justify-content: center;
+  }
+
+  /* --- DESKTOP CTA STYLES (Red Glow for Get PS Button) --- */
+  .hero-cta-group .btn-waitlist--cta {
+    background: transparent; 
+    padding: 0; 
+    border: 1px solid rgba(255, 40, 40, 0.6);
+    box-shadow: 0 0 25px rgba(255, 0, 0, 0.35), inset 0 0 10px rgba(255, 0, 0, 0.15);
+  }
+  
+  /* Change the top light streak to red */
+  .hero-cta-group .btn-waitlist--cta .btn-waitlist__glow {
+    background: radial-gradient(
+      ellipse at center,
+      rgba(255, 0, 0, 0.8) 0%,
+      rgba(255, 50, 50, 0.3) 50%,
+      transparent 80%
+    );
+  }
+
+  /* Make the inside of the button dark so the glow pops */
+  .hero-cta-group .btn-waitlist--cta .btn-waitlist__inner--cta {
+    background: rgba(0, 0, 0, 0.85);
+    color: #ffffff;
+  }
+
+  /* Add a subtle red tint when hovering over the button */
+  .hero-cta-group .btn-waitlist--cta:hover .btn-waitlist__inner--cta {
+    background: rgba(30, 0, 0, 0.9); 
+  }
+}
+
+/* Mobile screens (<768px) */
 @media (max-width: 768px) {
   .hero-heading {
     font-size: 36px;
@@ -280,6 +327,53 @@
   .hero-content {
     gap: 32px;
   }
+
+  /* --- MOBILE CTA STYLES --- */
+  
+  .hero-cta-group {
+    /* Set to column so PS naturally sits above Register */
+    flex-direction: column; 
+    gap: 16px;
+  }
+
+  /* 1. GET PROBLEM STATEMENTS (Underlined Red Link) */
+  .hero-cta-group .btn-waitlist--cta {
+    background: transparent;
+    padding: 0;
+  }
+  
+  /* Hide the top light streak for the text link */
+  .hero-cta-group .btn-waitlist--cta .btn-waitlist__glow {
+    display: none; 
+  }
+  
+  /* Style it into a highlighted red text link */
+  .hero-cta-group .btn-waitlist--cta .btn-waitlist__inner--cta {
+    background: transparent;
+    color: #ff4444; 
+    padding: 8px 16px; 
+    text-decoration: underline;
+    text-underline-offset: 6px;
+    text-decoration-thickness: 1.5px;
+    font-size: 15px;
+  }
+
+  /* 2. REGISTER BUTTON (Red Glow) */
+  .mobile-hero-register .btn-waitlist--nav {
+    border: 1px solid rgba(255, 40, 40, 0.6);
+    /* Outer red glow + subtle inner red glow */
+    box-shadow: 0 0 25px rgba(255, 0, 0, 0.35), inset 0 0 10px rgba(255, 0, 0, 0.15);
+  }
+  
+  /* Change the top little light streak to red */
+  .mobile-hero-register .btn-waitlist--nav .btn-waitlist__glow {
+    background: radial-gradient(
+      ellipse at center,
+      rgba(255, 0, 0, 0.8) 0%,
+      rgba(255, 50, 50, 0.3) 50%,
+      transparent 80%
+    );
+  }
 }
 
 @media (max-width: 480px) {
@@ -287,5 +381,3 @@
     font-size: 30px;
   }
 }
-
-/* Removed the max-width: 900px media query as the text should wrap naturally at all screen sizes */

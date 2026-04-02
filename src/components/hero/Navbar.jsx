@@ -148,10 +148,6 @@ export default function Navbar() {
             </a>
           )
         })}
-        
-        <div className="mobile-register" onClick={() => setMenuOpen(false)}>
-          <WaitlistButton variant="nav" />
-        </div>
       </div>
     </nav>
   )

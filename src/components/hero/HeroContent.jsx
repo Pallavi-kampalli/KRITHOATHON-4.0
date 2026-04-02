@@ -46,13 +46,22 @@ export default function HeroContent() {
       {/* Subtitle */}
       <p className="hero-subtitle" id="heroSubtitle">
         <span className="hero-subtitle-line">
-          {/* Added missing spaces after "Inspire." and "VNRVJIET," */}
           KRITHOATHON 4.0 – Innovate. Impact. Inspire. Hosted by Krithomedh, the technical club of CSE - AIML, IoT & R&AI at VNRVJIET, this edition goes beyond coding to challenge diverse teams to solve real-world problems.
         </span>
       </p>
         
-      {/* CTA Button */}
-      <WaitlistButton variant="cta" />
+      {/* CTA Button Group (Updated for Mobile Stacking) */}
+      <div className="hero-cta-group">
+        
+        {/* 1. Download Problem Statements Button */}
+        <WaitlistButton variant="cta" />
+
+        {/* 2. Register Button (Visible ONLY on Mobile View) */}
+        <div className="mobile-hero-register">
+          <WaitlistButton variant="nav" />
+        </div>
+
+      </div>
       <div className="h-8 md:h-12" />
     </div>
   )
