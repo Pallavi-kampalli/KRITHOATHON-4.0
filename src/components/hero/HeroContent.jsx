@@ -57,9 +57,11 @@ export default function HeroContent() {
         </span>
 
       </p>
-
+        
       {/* CTA Button */}
       <WaitlistButton variant="cta" />
+      <div className="h-8 md:h-12" />
     </div>
+    
   )
 }
