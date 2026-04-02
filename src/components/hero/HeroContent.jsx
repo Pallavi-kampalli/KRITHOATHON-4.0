@@ -48,7 +48,7 @@ export default function HeroContent() {
           KRITHOATHON 4.0 – Innovate. Impact. Inspire.
         </span>
         <span className="hero-subtitle-line">
-          Hosted by Krithomedh, the technical club of  (AIML & IoT), R&AI at VNRVJIET,
+          Hosted by Krithomedh, the technical club of CSE - AIML, IoT & R&AI at VNRVJIET,
         </span>
         <span className="hero-subtitle-line">
           this edition goes beyond coding to challenge diverse teams to solve real-world problems.

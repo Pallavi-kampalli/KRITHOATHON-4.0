@@ -27,8 +27,7 @@
 }
 
 @media (max-width: 768px) {
-  .video-bg {
-    top: 72px;
-    height: calc(100% - 72px);
+  .hero-section {
+    padding-top: 72px;
   }
 }

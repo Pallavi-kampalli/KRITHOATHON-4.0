@@ -30,6 +30,9 @@ export default function BackgroundVideo() {
         />
       </video>
       <div className="video-bg__overlay" />
+      
     </div>
+    
   )
+  
 }

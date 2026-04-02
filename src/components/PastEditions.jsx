@@ -117,10 +117,11 @@ export default function PastEditions() {
               overflow: "hidden",
               background: "rgba(255,255,255,0.03)",
               border: "1px solid rgba(255,255,255,0.1)",
-              padding: "12px",
+              padding: "16px",
               transition: "0.5s",
             }}
           >
+
             <ImageSlider images={edition.images} />
 
             <p
@@ -134,7 +135,9 @@ export default function PastEditions() {
             </p>
           </div>
         ))}
+    
       </div>
+      <div className="h-8 md:h-12" />
     </div>
   );
 }
