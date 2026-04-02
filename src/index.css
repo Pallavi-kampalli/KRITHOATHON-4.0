@@ -27,30 +27,19 @@
   --gradient-badge: linear-gradient(135deg, rgba(167,139,250,0.15), rgba(34,211,238,0.15));
   --gradient-glow: linear-gradient(135deg, var(--color-violet), var(--color-fuchsia), var(--color-cyan));
 }
-
-html, body {
-  width: 100%;
-  height: 100%;
-  overflow-x: hidden;
-  font-family: 'General Sans', -apple-system, BlinkMacSystemFont, sans-serif;
-  background: #000000;
-  color: #ffffff;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+html {
+  scroll-behavior: smooth;
 }
-
-
 body {
   width: 100%;
   min-height: 100vh;
-  overflow-x: hidden;
+  overflow-x: hidden; /* Keep this here, away from the html tag */
   font-family: 'General Sans', -apple-system, BlinkMacSystemFont, sans-serif;
   background: #000000;
   color: #ffffff;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
-
 a {
   text-decoration: none;
   color: inherit;
@@ -65,7 +54,4 @@ button {
   cursor: pointer;
   font-family: inherit;
   background: none;
-}
-html {
-  scroll-behavior: smooth;
 }

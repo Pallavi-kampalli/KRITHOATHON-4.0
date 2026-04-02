@@ -16,6 +16,10 @@
   gap: 25px;
   text-align: center;
   padding: 0px 0px 0;
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  overflow-x: hidden; /* Added safety net for horizontal scroll */
 }
 
 /* ===== Badge Pill ===== */
@@ -53,7 +57,7 @@
 
 /* ===== Hero Heading ===== */
 .hero-heading {
-  font-family: 'DM Mono', monospace; /* FONT APPLIED HERE */
+  font-family: 'DM Mono', monospace;
   max-width: 613px;
   font-size: 56px;
   font-weight: 800;
@@ -63,7 +67,7 @@
   z-index: 0;
   isolation: isolate;
   display: flex;
-  flex-wrap: wrap;
+  flex-wrap: wrap; /* Keeps text inside bounds */
   justify-content: center;
   gap: 0.28em;
   opacity: 1;
@@ -163,12 +167,13 @@
   margin-top: 16px;
   margin-bottom: 30px;
   opacity: 0;
+  text-wrap: balance; /* Balances text lines on desktop */
   animation: fadeInUp 0.8s cubic-bezier(0.22, 1, 0.36, 1) 0.7s forwards;
 }
 
 .hero-subtitle-line {
-  display: block;
-  white-space: nowrap;
+  display: inline-block;
+  white-space: normal; /* FIX: Removed nowrap so text can wrap freely */
 }
 
 /* ===== CTA Button entry ===== */
@@ -242,7 +247,6 @@
   }
 }
 
-
 @media (prefers-reduced-motion: reduce) {
   .hero-heading__word,
   .hero-heading::before,
@@ -284,8 +288,4 @@
   }
 }
 
-@media (max-width: 900px) {
-  .hero-subtitle-line {
-    white-space: normal;
-  }
-}
+/* Removed the max-width: 900px media query as the text should wrap naturally at all screen sizes */

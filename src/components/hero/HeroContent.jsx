@@ -37,7 +37,8 @@ export default function HeroContent() {
             className="hero-heading__word"
             style={{ '--i': String(index) }}
           >
-            {word}
+            {/* Space added here so the words wrap naturally */}
+            {word}{' '}
           </span>
         ))}
       </h1>
@@ -45,23 +46,14 @@ export default function HeroContent() {
       {/* Subtitle */}
       <p className="hero-subtitle" id="heroSubtitle">
         <span className="hero-subtitle-line">
-          KRITHOATHON 4.0 – Innovate. Impact. Inspire.
+          {/* Added missing spaces after "Inspire." and "VNRVJIET," */}
+          KRITHOATHON 4.0 – Innovate. Impact. Inspire. Hosted by Krithomedh, the technical club of CSE - AIML, IoT & R&AI at VNRVJIET, this edition goes beyond coding to challenge diverse teams to solve real-world problems.
         </span>
-        <span className="hero-subtitle-line">
-          Hosted by Krithomedh, the technical club of CSE - AIML, IoT & R&AI at VNRVJIET,
-        </span>
-        <span className="hero-subtitle-line">
-          this edition goes beyond coding to challenge diverse teams to solve real-world problems.
-          <br />
-          Collaborate, create, and compete with industry experts as you push boundaries and craft solutions that matter.
-        </span>
-
       </p>
         
       {/* CTA Button */}
       <WaitlistButton variant="cta" />
       <div className="h-8 md:h-12" />
     </div>
-    
   )
 }
