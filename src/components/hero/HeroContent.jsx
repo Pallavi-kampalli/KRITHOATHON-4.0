@@ -48,8 +48,12 @@ export default function HeroContent() {
         <span className="hero-subtitle-line">
           KRITHOATHON 4.0 – Innovate. Impact. Inspire. Hosted by Krithomedh, the technical club of CSE - AIML, IoT & R&AI at VNRVJIET, this edition goes beyond coding to challenge diverse teams to solve real-world problems.
         </span>
-      </p>
         
+      </p>
+          <div className="ticker-container">
+            <div className="ticker">Round 1 results are live — check Updates now   •   Round 1 results are live — check Updates now   •   Round 1 results are out!! — check Updates now</div>
+          </div>
+
       {/* CTA Button Group (Updated for Mobile Stacking) */}
       <div className="hero-cta-group">
         

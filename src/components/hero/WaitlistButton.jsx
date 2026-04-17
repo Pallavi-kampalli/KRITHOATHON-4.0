@@ -33,7 +33,7 @@ export default function WaitlistButton({ variant = 'nav' }) {
   }, [variant])
 
   const isNav = variant === 'nav'
-  const label = isNav ? 'Register' : 'Get Problem Statements'
+  const label = isNav ? 'Register' : 'Get Problem Statements for ROUND 1'
 
   return (
     <button

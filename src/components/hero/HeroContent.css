@@ -20,6 +20,7 @@
   max-width: 1200px;
   margin: 0 auto;
   overflow-x: hidden; 
+  margin-top: -60px;
 }
 
 /* ===== Badge Pill ===== */
@@ -164,23 +165,25 @@
   font-weight: 400;
   line-height: 1.7;
   color: rgba(255, 255, 255, 0.7);
-  margin-top: 16px;
-  margin-bottom: 30px;
+  margin-top: 8px;
+  margin-bottom: 10px;
   opacity: 0;
   text-wrap: balance; 
   animation: fadeInUp 0.8s cubic-bezier(0.22, 1, 0.36, 1) 0.7s forwards;
+
 }
 
 .hero-subtitle-line {
   display: inline-block;
   white-space: normal; 
+
 }
 
 /* ===== CTA Button Group & Entry Animation ===== */
 .hero-cta-group {
   opacity: 0;
   animation: fadeInUp 0.8s cubic-bezier(0.22, 1, 0.36, 1) 0.85s forwards;
-  
+  margin-top: 6px;
   display: flex;
   flex-direction: column;
   align-items: center; 
@@ -269,6 +272,7 @@
 @media (max-width: 600px) {
   .hero-content {
     gap: 28px;
+
   }
 }
 
@@ -379,5 +383,36 @@
 @media (max-width: 480px) {
   .hero-heading {
     font-size: 30px;
+  }
+}
+
+.ticker-container {
+  width: 100%;
+  overflow: hidden;
+  background: rgba(0, 0, 0, 0.6); /* matches your dark theme */
+  border-top: 1px solid rgba(255,255,255,0.1);
+  border-bottom: 1px solid rgba(255,255,255,0.1);
+  padding: 4px 0;
+}
+
+.ticker {
+  display: inline-block;
+  white-space: nowrap;
+  color: #fff;
+  font-weight: bold;
+  animation: scrollText 25s linear infinite;
+}
+
+.ticker:hover {
+  animation-play-state: paused;
+}
+
+
+@keyframes scrollText {
+  0% {
+    transform: translateX(100%);
+  }
+  100% {
+    transform: translateX(-100%);
   }
 }

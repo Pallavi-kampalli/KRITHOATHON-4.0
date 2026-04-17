@@ -10,14 +10,14 @@ const timelineEvents = [
   },
   {
     id: 2,
-    date: "April 11, 2026",
+    date: "April 13, 2026",
     title: "Round 1 Final Submissions",
 
     side: "right",
   },
   {
     id: 3,
-    date: "April 15, 2026",
+    date: "April 17, 2026",
     title: "Round 1 Results Declaration",
     side: "left",
   },
